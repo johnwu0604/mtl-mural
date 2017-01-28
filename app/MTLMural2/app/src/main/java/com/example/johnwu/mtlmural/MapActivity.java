@@ -2,6 +2,7 @@ package com.example.johnwu.mtlmural;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -10,7 +11,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
@@ -38,9 +39,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        mMap.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(45.5033,-73.576) , 11.5f) );
+
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(45.555841, -73.616364);
+        LatLng sydney = new LatLng(45.5033, -73.576);
         mMap.addMarker(new MarkerOptions().position(sydney).title("First Mural"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }
