@@ -1,30 +1,27 @@
 package model;
 
+import java.util.Arrays;
+
 /**
  * Created by JohnWu on 2017-01-28.
  */
 public class Geometry {
 
-    private String type;
-    private int[] coordinates;
+    private double[] coordinates;
 
     public Geometry() {
 
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public int[] getCoordinates() {
+    public double[] getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(int[] coordinates) {
+    public void setCoordinates(double[] coordinates) {
         this.coordinates = coordinates;
+    }
+
+    public String toString(){
+        return Arrays.toString(this.coordinates);
     }
 }

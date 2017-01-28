@@ -5,7 +5,6 @@ package model;
  */
 public class Mural {
 
-    private String type;
     private Properties properties;
     private Geometry geometry;
 
@@ -13,13 +12,6 @@ public class Mural {
 
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public Properties getProperties() {
         return properties;
@@ -35,5 +27,9 @@ public class Mural {
 
     public void setGeometry(Geometry geometry) {
         this.geometry = geometry;
+    }
+
+    public String toString(){
+        return "Coordinates: " + this.geometry + ", Properties: " + this.properties;
     }
 }

@@ -12,8 +12,8 @@ public class Properties {
     private String address;
     private int year;
     private String program;
-    private int latitude;
-    private int longitude;
+    private double latitude;
+    private double longitude;
     private String image;
 
     public Properties() {
@@ -76,19 +76,19 @@ public class Properties {
         this.program = program;
     }
 
-    public int getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(int latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public int getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(int longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
@@ -98,5 +98,9 @@ public class Properties {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String toString(){
+        return "id: " + id + ", file:" + file + ", artist: " + artist + ", organisation" + organisation + ", address: " + address  + ", year: " + year + ", program: " + program + ", latitude: " + latitude + ", " + longitude + ", image: " + image;
     }
 }
