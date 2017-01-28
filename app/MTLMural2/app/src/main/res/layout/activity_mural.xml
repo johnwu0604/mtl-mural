@@ -4,22 +4,24 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:background="?attr/colorPrimary"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbarMural" />
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="327dp"
         android:id="@+id/imageMural" />
 
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/muralDescription" />-->
-
-    <android.support.v7.widget.Toolbar
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?attr/colorPrimary"
-        android:theme="?attr/actionBarTheme"
-        android:minHeight="?attr/actionBarSize"
-        android:id="@+id/toolbarMural" />
+        android:layout_height="wrap_content"
+        android:maxLines = "5"
+        android:scrollbars = "vertical"
+        android:id="@+id/muralDescription" />
 
 </LinearLayout>
