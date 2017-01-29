@@ -1,6 +1,4 @@
 #MTL Mural
-
-#Inspiration
 Concrete, potholes, and traffic jams. We've created a way to find the diamonds in the rough amongst an evergrowing, urban metropolis.
 
 #What it does
