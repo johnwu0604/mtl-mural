@@ -5,13 +5,48 @@ android:orientation="vertical" android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:weightSum="1">
 
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:background="#5e1414"
-        android:theme="?attr/actionBarTheme"
-        android:minHeight="57dp"
-        android:id="@+id/toolbar"
-        android:layout_height="wrap_content" />
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/relativelayout"
+        android:layout_width="fill_parent"
+        android:layout_height="57dp" >
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:background="#5e1414"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="57dp"
+            android:id="@+id/toolbar"
+            android:layout_height="wrap_content" />
+
+        <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+            <!--android:orientation="horizontal" android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:weightSum="1">-->
+
+            <ImageView
+                android:layout_width="75dp"
+                android:background="@drawable/logo"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:layout_marginRight="10dp"
+                android:id="@+id/logo" />
+
+            <TextView
+                android:id="@+id/myImageViewText"
+                android:layout_width="wrap_content"
+                android:layout_height="57dp"
+                android:layout_margin="1dp"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textSize="19.5sp"
+                android:text="MTL Mural"
+                android:textColor="#ffffff" />
+
+        <!--</LinearLayout>-->
+
+    </RelativeLayout>
 
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
