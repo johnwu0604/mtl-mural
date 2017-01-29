@@ -84,7 +84,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         // Populate map using the list
         for ( Mural mural : muralList[0]) {
             LatLng position = new LatLng( mural.getProperties().getLatitude(), mural.getProperties().getLongitude() );
-            mMap.addMarker(new MarkerOptions().position(position).title(mural.getProperties().getAddress() + "\n" + mural.getProperties().getArtist()));
+            Marker m = mMap.addMarker(new MarkerOptions().position(position).title(mural.getProperties().getAddress() + "\n" + mural.getProperties().getArtist()));
+            m.setTag(mural);
         }
 
         // Set a listener for marker tap
@@ -121,14 +122,16 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     @Override
     public boolean onMarkerClick(final Marker marker){
         // Retrieve the data from the marker.
-        Integer clickCount = (Integer) marker.getTag();
+        Mural muralClicked = (Mural) marker.getTag();
+
+
 
         // Check if a click count was set, then display the click count.
-//        if (clickCount != null) {
-//            Intent activity = new Intent(MapActivity.this, NextActivity.class);
-//            activity.putExtra("myMural", new Gson().toJson(myobject));
-//            startActivity(activity);
-//        }
+        if (muralClicked != null) {
+            Intent activity = new Intent(MapActivity.this, MuralActivity.class);
+            activity.putExtra("myMural", new Gson().toJson(muralClicked));
+            startActivity(activity);
+        }
 
         // Return false to indicate that we have not consumed the event and that we wish
         // for the default behavior to occur (which is for the camera to move such that the

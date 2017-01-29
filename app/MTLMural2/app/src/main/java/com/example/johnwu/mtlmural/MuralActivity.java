@@ -6,6 +6,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.text.method.ScrollingMovementMethod;
 
+import com.google.gson.Gson;
+
+import model.Mural;
+
 
 public class MuralActivity extends FragmentActivity {
 
@@ -15,8 +19,16 @@ public class MuralActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mural);
+
+        String jsonMyObject = null;
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            jsonMyObject = extras.getString("myMural");
+        }
+        Mural mural = new Gson().fromJson(jsonMyObject, Mural.class);
+
         new DownloadImageTask((ImageView) findViewById(R.id.imageMural))
-                .execute("http://s.orzzzz.com/news/a0/b7//552f49e59cedd.jpg");
+                .execute(mural.getProperties().getImage());
         TextView muralDescription = (TextView) findViewById(R.id.muralDescription);
         muralDescription.setText("Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting of alphabetic and numeric characters, between two or more users of mobile phones, fixed devices (e.g., desktop computers) or portable devices (e.g., tablet computers or smartphones). While text messages are usually sent over a phone network, due to the convergence between the telecommunication and broadcasting industries in the 2000s, text messages may also be sent via a cable network or Local Area Network. The term originally referred to messages sent using the Short Message Service (SMS). It has grown beyond alphanumeric text to include multimedia messages (known as MMS) containing digital images, videos, and sound content, as well as ideograms known as emoji (happy faces and other icons).\n" +
                 "\n" +
