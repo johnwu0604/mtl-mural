@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="mural-data:jar">
+  <artifact type="jar" build-on-make="true" name="mural-data:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/mural_data_jar</output-path>
     <root id="archive" name="mural-data.jar">
       <element id="module-output" name="mural-data" />

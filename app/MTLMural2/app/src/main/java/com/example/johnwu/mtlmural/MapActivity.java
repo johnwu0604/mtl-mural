@@ -16,6 +16,12 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import controller.MuralDataController;
+import model.Mural;
+
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback, ActivityCompat.OnRequestPermissionsResultCallback {
 
     private GoogleMap mMap;
@@ -69,8 +75,36 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         mMap.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(45.5033,-73.576) , 11.5f) );
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(45.5033, -73.576);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("First Mural"));
+        final List<Mural>[] muralList = new List[]{null};
+
+        Thread thread = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                try  {
+                    try {
+                        MuralDataController muralData = new MuralDataController();
+                        muralList[0] = muralData.getMuralData();
+                    } catch (Exception e) {
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        try {
+            thread.start();
+            thread.join();
+        } catch (Exception e) {
+
+        }
+
+        for ( Mural mural : muralList[0]) {
+            LatLng position = new LatLng( mural.getProperties().getLatitude(), mural.getProperties().getLongitude() );
+            mMap.addMarker(new MarkerOptions().position(position).title(mural.getProperties().getArtist()));
+        }
+
     }
 }

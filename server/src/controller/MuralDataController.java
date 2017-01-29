@@ -27,7 +27,12 @@ public class MuralDataController {
 
     }
 
-    public List<Mural> getMuralData() {
+    public static void main(String[] args) throws Exception{
+        MuralDataController l = new MuralDataController();
+        System.out.print(l.getMuralData());
+    }
+
+    public List<Mural> getMuralData() throws Exception {
 
         List<Mural> listOfMurals = new ArrayList<Mural>();
 
@@ -72,7 +77,9 @@ public class MuralDataController {
             }
 
 
-        }catch(Exception e){}
+        }catch(Exception e){
+            throw new Exception("Error occurred", e);
+        }
 
         return listOfMurals;
     }
